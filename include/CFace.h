@@ -2,11 +2,15 @@
 #ifndef _CFACE_H_
     #define _CFACE_H_
 
+
+#include <string>
 #include "CScreen.h"
+#include "CSprite.h"
 
 //=============================================================================
 class CFace : public CScreen {
     public:
+        static CFace FaceControl;
         enum {
             MOOD_NORMAL = 0,
             MOOD_ANGRY = 1,
@@ -17,11 +21,16 @@ class CFace : public CScreen {
             MOOD_SLEEP = 6,
             MOOD_SURPRISED = 7
         };
+    protected:
+        std::string  mMood;
 
-        bool OnLoad(char *name);
-        void OnRender(SDL_Surface* Surf_Display);
-        void OnLoop();
-        bool SetMood(unsigned int newMood);
+    public:
+        ~CFace();
+        bool OnLoad(char *file);
+        //void OnRender(SDL_Surface* Surf_Display);
+        bool SetMood(char *newMood);
+
+    private:
 };
 
 //=============================================================================

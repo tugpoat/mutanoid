@@ -11,7 +11,7 @@ bool CApp::OnInit() {
     mWindow = SDL_CreateWindow("Mutanoid", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, WWIDTH, WHEIGHT, SDL_WINDOW_SHOWN );
 
     Surf_Display = SDL_GetWindowSurface(mWindow);
-    CScreen::ScreenControl.OnLoad("test.xml");
+    CFace::FaceControl.OnLoad("res/faces/yaranaika/face.xml");
 
     return true;
 }

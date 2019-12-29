@@ -1,6 +1,6 @@
 //==============================================================================
 #include "CAnimation.h"
-
+#include <iostream>
 //==============================================================================
 CAnimation::CAnimation() {
     CurrentFrame    = 0;
@@ -34,7 +34,7 @@ void CAnimation::OnAnimate() {
             }
         }
     }else{
-        if(CurrentFrame >= MaxFrames - 1) {
+        if(CurrentFrame >= MaxFrames) {
             CurrentFrame = 0;
         }
     }

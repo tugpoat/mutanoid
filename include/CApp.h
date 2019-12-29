@@ -17,6 +17,7 @@
 
 
 #include "CScreen.h"
+#include "CFace.h"
 
 //==============================================================================
 class CApp : public CEvent {

@@ -1,18 +1,21 @@
 #include "CSprite.h"
 
-CSprite::CSprite() {
-
-}
-
 //=============================================================================
 bool CSprite::OnLoad(const char* File, int Width, int Height, int MaxFrames) {
     if(CEntity::OnLoad(File, Width, Height, MaxFrames) == false) {
         return false;
     }
-    bAnimating = true;
+
     return true;
 }
 
+void CSprite::StartAnimating() {
+	bAnimating = true;
+}
+
+void CSprite::StopAnimating() {
+	bAnimating = false;
+}
 //-----------------------------------------------------------------------------
 void CSprite::OnLoop() {
 	CEntity::OnLoop();
@@ -30,6 +33,7 @@ void CSprite::OnCleanup() {
 
 //------------------------------------------------------------------------------
 void CSprite::OnAnimate() {
-	if(bAnimating)
+	if(bAnimating) {
 		CEntity::OnAnimate();
+	}
 }

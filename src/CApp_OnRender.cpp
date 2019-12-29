@@ -12,7 +12,7 @@ void CApp::OnRender() {
 
 	SDL_FillRect(Surf_Display, &Rect, SDL_MapRGB(Surf_Display->format, 255,255,255));
 
-	CScreen::ScreenControl.OnRender(Surf_Display);
+	CFace::FaceControl.OnRender(Surf_Display);
 /*
     //--------------------------------------------------------------------------
     // Entities

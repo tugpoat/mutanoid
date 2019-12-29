@@ -2,7 +2,7 @@
 #include "CEntity.h"
 #include <iostream>
 //==============================================================================
-
+std::vector<CEntity*> CEntity::EntityList;
 //==============================================================================
 CEntity::CEntity() {
 	Surf_Entity = NULL;
@@ -78,7 +78,7 @@ void CEntity::OnLoop() {
 //------------------------------------------------------------------------------
 void CEntity::OnRender(SDL_Surface* Surf_Display) {
     if(Surf_Entity == NULL || Surf_Display == NULL) return;
-
+    
     CSurface::OnDraw(Surf_Display, Surf_Entity, X - CCamera::CameraControl.GetX(), Y - CCamera::CameraControl.GetY(), CurrentFrameCol * Width, (CurrentFrameRow + Anim_Control.GetCurrentFrame()) * Height, Width, Height);
 }
 
@@ -94,13 +94,6 @@ void CEntity::OnCleanup() {
 //------------------------------------------------------------------------------
 void CEntity::OnAnimate() {
 	CurrentFrameCol = 0;
-	if(MoveLeft) {
-		CurrentFrameCol = 0;
-	}else
-
-	if(MoveRight) {
-		CurrentFrameCol = 1;
-	}
 
 	Anim_Control.OnAnimate();
 }

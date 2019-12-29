@@ -12,8 +12,7 @@ void CApp::OnLoop() {
         CEntity::EntityList[i]->OnLoop();
     }
 
-    CScreen::ScreenControl.OnLoop();
-
+    CFace::FaceControl.OnLoop();
 
     CFPS::FPSControl.OnLoop();
 
