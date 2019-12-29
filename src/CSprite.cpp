@@ -6,7 +6,22 @@ bool CSprite::OnLoad(const char* File, int Width, int Height, int MaxFrames) {
         return false;
     }
 
+    bAnimating = false;
+    bVisible = false;
+
     return true;
+}
+
+void CSprite::SetFrameDelay(unsigned int newRate) {
+	Anim_Control.SetFrameRate(newRate);
+}
+
+bool CSprite::isVisible() {
+	return bVisible;
+}
+
+void CSprite::SetVisible(bool new_bVisible) {
+	bVisible = new_bVisible;
 }
 
 void CSprite::StartAnimating() {
@@ -23,7 +38,8 @@ void CSprite::OnLoop() {
 
 //-----------------------------------------------------------------------------
 void CSprite::OnRender(SDL_Surface* Surf_Display) {
-	CEntity::OnRender(Surf_Display);
+	if (bVisible)
+		CEntity::OnRender(Surf_Display);
 }
 
 //------------------------------------------------------------------------------

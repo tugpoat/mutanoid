@@ -16,11 +16,15 @@ class CSprite : public CEntity {
         void OnCleanup();
         void OnAnimate();
 
+        void SetFrameDelay(unsigned int);
+        bool isVisible();
+        void SetVisible(bool);
         void StartAnimating();
         void StopAnimating();
     protected:
     	unsigned int iFrames;
     	bool bAnimating;
+        bool bVisible;
 
 };
 

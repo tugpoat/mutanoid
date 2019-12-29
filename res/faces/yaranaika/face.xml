@@ -3,17 +3,17 @@
 	<face version="0.1" name="yaranaika" defaultmood="normal">
 		<mood version="0.1" name="normal">
 			<base file="frame.png" />
-			<sprite name="eye_left" file="eye_left.png" x="166" y="273" width="0" height="0" rows="1" cols="2" defaultrow="0" defaultcol="0" visible="true" animating="true" framedelay="5000" movespeed="1" accel="1">
+			<sprite name="eye_left" file="eye_left.png" x="166" y="273" width="0" height="0" rows="1" cols="2" defaultrow="0" defaultcol="0" visible="true" animating="false" framedelay="5000" movespeed="1" accel="1">
 				<frame row="0" col="0" /> <!-- open -->
 				<frame row="0" col="1" /> <!-- closed -->
 			</sprite>
 
-			<sprite name="eye_right" file="eye_right.png" x="166" y="273" width="0" height="0" rows="1" cols="2" defaultrow="0" defaultcol="0" visible="true" animating="true" framedelay="5000" movespeed="1" accel="1">
+			<sprite name="eye_right" file="eye_right.png" x="166" y="273" width="0" height="0" rows="1" cols="2" defaultrow="0" defaultcol="0" visible="true" animating="false" framedelay="5000" movespeed="1" accel="1">
 				<frame row="0" col="1" /> <!-- open -->
 				<frame row="0" col="1" /> <!-- closed -->
 			</sprite>
 
-			<sprite name="mouth" file="mouth.png" x="166" y="273" width="250" height="45" rows="2" cols="1" defaultrow="0" visible="true" animating="false" framedelay="500" movespeed="1" accel="1">
+			<sprite name="mouth" file="mouth.png" x="166" y="273" width="250" height="45" rows="2" cols="1" defaultrow="0" visible="true" animating="true" framedelay="100" movespeed="1" accel="1">
 				<frame row="0" col="1" /> <!-- closed -->
 				<frame row="0" col="2" /> <!-- open -->
 			</sprite>

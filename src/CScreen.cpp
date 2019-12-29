@@ -7,13 +7,10 @@ CScreen::~CScreen() {
 }
 
 bool CScreen::OnLoad(char *file) {
-
 	//glibc implementation of dirname() modifies the passed argument. we need to create a new buffer to avoid a segfault.
 	char *tpath = strdup(file);
 	mBasePath = std::string(dirname(tpath));
 	free(tpath); //clean up
-
-	std::cout << "loading screen from " << mBasePath << std::endl;
 
 	//load in screen definition file
 	pugi::xml_document doc;
@@ -27,21 +24,6 @@ bool CScreen::OnLoad(char *file) {
 		return false;
 	}
 
-/*
-	mBackground = IMG_Load("res/test.png");
-
-	//populate background/entities/sprites/etc
-	CSprite *spr = new CSprite();
-	spr->OnLoad("res/yoshi.png",64, 64, 8);
-	mEntityList.push_back(spr);
-
-	CSprite *spr2 = new CSprite();
-	spr2->OnLoad("res/yoshi.png", 64, 64, 8);
-	spr2->X = 420;
-	spr2->Y = 420;
-	mEntityList.push_back(spr2);
-*/
-	std::cout << "screen ok" << std::endl;
 	return true;
 }
 
