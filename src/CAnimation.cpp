@@ -20,7 +20,7 @@ void CAnimation::OnAnimate() {
 	if(OldTime + FrameRate > SDL_GetTicks()) {
 		return;
 	}
-`
+
 	if (CurrentFrame <= 0 && OldTime + iLoopDelay > SDL_GetTicks()) {
 		return;
 	}
