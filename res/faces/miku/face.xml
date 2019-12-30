@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<screen version="0.1">
+	<face version="0.1" name="yaranaika" defaultmood="normal">
+		<mood version="0.1" name="normal">
+			<base file="frame.png" />
+			<sprite name="eye_left" file="eye_left.png" x="317" y="289" width="441" height="365" rows="3" cols="1" defaultrow="0" defaultcol="0" visible="true" animating="true" framedelay="25" oscillate="true" loopdelay="5000" movespeed="1" accel="1">
+				<frame row="0" col="0" /> <!-- open -->
+				<frame row="0" col="1" /> <!-- closed -->
+			</sprite>
+
+			<sprite name="eye_right" file="eye_right.png" x="1076" y="231" width="441" height="365" rows="3" cols="1" defaultrow="0" defaultcol="0" visible="true" animating="true" framedelay="25" oscillate="true" loopdelay="5000" movespeed="1" accel="1">
+				<frame row="0" col="1" /> <!-- open -->
+				<frame row="0" col="1" /> <!-- closed -->
+			</sprite>
+			<sprite name="bangs" file="bangs.png" x="569" y="0" width="673" height="680" rows="1" cols="1" defaultrow="0" defaultcol="0" visible="true" animating="false" />
+			<sprite name="mouth" file="mouth.png" x="896" y="951" width="120" height="40" rows="2" cols="1" defaultrow="0" visible="true" animating="true" framedelay="100" movespeed="1" accel="1">
+				<frame row="0" col="1" /> <!-- closed -->
+				<frame row="0" col="2" /> <!-- open -->
+			</sprite>
+		</mood>
+	</face>
+</screen>

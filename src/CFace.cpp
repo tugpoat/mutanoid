@@ -68,6 +68,12 @@ bool CFace::OnLoad(char *file) {
 		spr->SetVisible(sprite.attribute("visible").as_bool());
 		spr->SetFrameDelay(sprite.attribute("framedelay").as_int());
 
+		if (sprite.attribute("oscillate").as_bool())
+			spr->SetOscillate(true);
+
+		if (sprite.attribute("loopdelay").as_int() > 0)
+			spr->SetLoopDelay(sprite.attribute("loopdelay").as_int());
+
 		if (sprite.attribute("animating").as_bool())
 			spr->StartAnimating();
 

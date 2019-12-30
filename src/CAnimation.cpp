@@ -7,6 +7,8 @@ CAnimation::CAnimation() {
 	MaxFrames       = 0;
 	FrameInc        = 1;
 
+	iLoopDelay      = 0;
+
 	FrameRate       = 100; //Milliseconds
 	OldTime         = 0;
 
@@ -16,6 +18,10 @@ CAnimation::CAnimation() {
 //------------------------------------------------------------------------------
 void CAnimation::OnAnimate() {
 	if(OldTime + FrameRate > SDL_GetTicks()) {
+		return;
+	}
+
+	if (CurrentFrame <= 0 && OldTime + iLoopDelay > SDL_GetTicks()) {
 		return;
 	}
 

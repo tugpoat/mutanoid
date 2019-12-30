@@ -12,6 +12,7 @@ class CAnimation {
 		int	    CurrentFrame;
 		int     FrameInc;
 
+
 	private:
 		int     FrameRate; //Milliseconds
 
@@ -22,6 +23,8 @@ class CAnimation {
 
 		bool	Oscillate;
 
+		unsigned int iLoopDelay;
+
 	public:
 		CAnimation();
 
@@ -29,6 +32,8 @@ class CAnimation {
 
 	public:
 		void SetFrameRate(int Rate);
+
+		void SetLoopDelay(unsigned int Delay);
 
 		void SetCurrentFrame(int Frame);
 

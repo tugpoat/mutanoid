@@ -24,6 +24,14 @@ void CSprite::SetVisible(bool new_bVisible) {
 	bVisible = new_bVisible;
 }
 
+void CSprite::SetOscillate(bool oscillate) {
+	Anim_Control.Oscillate = true;
+}
+
+void CSprite::SetLoopDelay(unsigned int newDelay) {
+	Anim_Control.iLoopDelay = newDelay;
+}
+
 void CSprite::StartAnimating() {
 	bAnimating = true;
 }

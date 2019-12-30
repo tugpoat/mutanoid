@@ -17,12 +17,15 @@ class CSprite : public CEntity {
 		void OnAnimate();
 
 		void SetFrameDelay(unsigned int);
+		void SetLoopDelay(unsigned int);
 		bool isVisible();
 		void SetVisible(bool);
+		void SetOscillate(bool);
 		void StartAnimating();
 		void StopAnimating();
 	protected:
 		unsigned int iFrames;
+
 		bool bAnimating;
 		bool bVisible;
 

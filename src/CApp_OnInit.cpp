@@ -13,7 +13,7 @@ bool CApp::OnInit() {
 	Surf_Display = SDL_GetWindowSurface(mWindow);
 
 	//TODO: Screen Manager to control which screen/face is active/displayed
-	CFace::FaceControl.OnLoad("res/faces/yaranaika/face.xml");
+	CFace::FaceControl.OnLoad("res/faces/miku/face.xml");
 
 	return true;
 }
