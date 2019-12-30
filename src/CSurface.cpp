@@ -21,7 +21,7 @@ SDL_Surface* CSurface::OnLoad(const char* File) {
 	return Surf_Return;
 }
 
-//==============================================================================
+//------------------------------------------------------------------------------
 bool CSurface::OnDraw(SDL_Surface* Surf_Dest, SDL_Surface* Surf_Src, int X, int Y) {
 	if(Surf_Dest == NULL || Surf_Src == NULL) {
 		return false;
@@ -37,7 +37,7 @@ bool CSurface::OnDraw(SDL_Surface* Surf_Dest, SDL_Surface* Surf_Src, int X, int 
 	return true;
 }
 
-//==============================================================================
+//------------------------------------------------------------------------------
 bool CSurface::OnDraw(SDL_Surface* Surf_Dest, SDL_Surface* Surf_Src, int X, int Y, int W, int H) {
 	if(Surf_Dest == NULL || Surf_Src == NULL) {
 		return false;

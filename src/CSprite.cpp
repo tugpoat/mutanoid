@@ -1,3 +1,4 @@
+//==============================================================================
 #include "CSprite.h"
 
 //=============================================================================
@@ -12,33 +13,41 @@ bool CSprite::OnLoad(const char* File, int Width, int Height, int MaxFrames) {
 	return true;
 }
 
+//-----------------------------------------------------------------------------
 void CSprite::SetFrameDelay(unsigned int newRate) {
 	Anim_Control.SetFrameRate(newRate);
 }
 
+//-----------------------------------------------------------------------------
 bool CSprite::isVisible() {
 	return bVisible;
 }
 
+//-----------------------------------------------------------------------------
 void CSprite::SetVisible(bool new_bVisible) {
 	bVisible = new_bVisible;
 }
 
+//-----------------------------------------------------------------------------
 void CSprite::SetOscillate(bool oscillate) {
 	Anim_Control.Oscillate = true;
 }
 
+//-----------------------------------------------------------------------------
 void CSprite::SetLoopDelay(unsigned int newDelay) {
 	Anim_Control.iLoopDelay = newDelay;
 }
 
+//-----------------------------------------------------------------------------
 void CSprite::StartAnimating() {
 	bAnimating = true;
 }
 
+//-----------------------------------------------------------------------------
 void CSprite::StopAnimating() {
 	bAnimating = false;
 }
+
 //-----------------------------------------------------------------------------
 void CSprite::OnLoop() {
 	CEntity::OnLoop();
@@ -61,3 +70,5 @@ void CSprite::OnAnimate() {
 		CEntity::OnAnimate();
 	}
 }
+
+//=============================================================================

@@ -1,11 +1,14 @@
+//==============================================================================
 #include "CScreen.h"
 
-
+//=============================================================================
 CScreen CScreen::ScreenControl;
 
+//=============================================================================
 CScreen::~CScreen() {
 }
 
+//=============================================================================
 bool CScreen::OnLoad(char *file) {
 	//glibc implementation of dirname() modifies the passed argument. we need to create a new buffer to avoid a segfault.
 	char *tpath = strdup(file);
@@ -27,6 +30,7 @@ bool CScreen::OnLoad(char *file) {
 	return true;
 }
 
+//------------------------------------------------------------------------------
 void CScreen::OnLoop() {
 	for(unsigned int i = 0;i < mEntityList.size();i++) {
 		if(!mEntityList[i]) continue;
@@ -35,6 +39,7 @@ void CScreen::OnLoop() {
 	}
 }
 
+//------------------------------------------------------------------------------
 void CScreen::OnRender(SDL_Surface* Surf_Display) {
 	//std::cout << "render" << std::endl;
 	CSurface::OnDraw(Surf_Display, mBackground, 0, 0, Surf_Display->w, Surf_Display->h);
@@ -44,3 +49,5 @@ void CScreen::OnRender(SDL_Surface* Surf_Display) {
 		mEntityList[i]->OnRender(Surf_Display);
 	}
 }
+
+//=============================================================================

@@ -1,5 +1,10 @@
+//==============================================================================
 #include "CFace.h"
+
+//==============================================================================
 CFace CFace::FaceControl;
+
+//==============================================================================
 
 CFace::~CFace() {
 	//free this properly somehow lmao
@@ -7,6 +12,7 @@ CFace::~CFace() {
 		delete mEntityList[i];
 }
 
+//==============================================================================
 // READY? SPAGHETTI!
 bool CFace::OnLoad(char *file) {
 	// Check to make sure it's a valid screen by calling our parent function
@@ -83,6 +89,7 @@ bool CFace::OnLoad(char *file) {
 	return true;
 }
 
+//------------------------------------------------------------------------------
 bool CFace::SetMood(char *name) {
 	//load mood from file
 	return true;
