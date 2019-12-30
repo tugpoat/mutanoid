@@ -29,18 +29,18 @@ bool CScreen::OnLoad(char *file) {
 
 void CScreen::OnLoop() {
 	for(unsigned int i = 0;i < mEntityList.size();i++) {
-        if(!mEntityList[i]) continue;
+		if(!mEntityList[i]) continue;
 
-        mEntityList[i]->OnLoop();
-    }
+		mEntityList[i]->OnLoop();
+	}
 }
 
 void CScreen::OnRender(SDL_Surface* Surf_Display) {
 	//std::cout << "render" << std::endl;
 	CSurface::OnDraw(Surf_Display, mBackground, 0, 0, Surf_Display->w, Surf_Display->h);
 	for(unsigned int i = 0;i < mEntityList.size();i++) {
-        if(!mEntityList[i]) continue;
+		if(!mEntityList[i]) continue;
 
-        mEntityList[i]->OnRender(Surf_Display);
-    }
+		mEntityList[i]->OnRender(Surf_Display);
+	}
 }

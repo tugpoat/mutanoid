@@ -1,9 +1,12 @@
 //==============================================================================
 #include "CApp.h"
 
+//TODO: Do things with this.
+//Make it subscribe to MQTT Events and etc
+
 //==============================================================================
 void CApp::OnEvent(SDL_Event* Event) {
-    CEvent::OnEvent(Event);
+	CEvent::OnEvent(Event);
 }
 
 //==============================================================================
@@ -17,12 +20,12 @@ void CApp::OnKeyDown(SDL_Keysym sym, SDL_Keymod mod) {
 			break;
 		}
 		case SDLK_SPACE: {
-		    break;
+			break;
 		}
-	    case SDLK_ESCAPE: {
-	      OnExit();
-	      break;
-	    }
+		case SDLK_ESCAPE: {
+			OnExit();
+			break;
+		}
 		default: {
 		}
 	}

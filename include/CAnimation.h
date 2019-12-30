@@ -2,7 +2,7 @@
 // Animation Class
 //==============================================================================
 #ifndef _CANIMATION_H_
-    #define _CANIMATION_H_
+	#define _CANIMATION_H_
 
 #include <SDL.h>
 
@@ -10,16 +10,15 @@
 class CAnimation {
 	private:
 		int	    CurrentFrame;
-
 		int     FrameInc;
 
-    private:
-        int     FrameRate; //Milliseconds
+	private:
+		int     FrameRate; //Milliseconds
 
 		long    OldTime;
 
 	public:
-        int	    MaxFrames;
+		int	    MaxFrames;
 
 		bool	Oscillate;
 
@@ -29,7 +28,7 @@ class CAnimation {
 		void OnAnimate();
 
 	public:
-        void SetFrameRate(int Rate);
+		void SetFrameRate(int Rate);
 
 		void SetCurrentFrame(int Frame);
 

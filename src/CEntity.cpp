@@ -2,7 +2,7 @@
 #include "CEntity.h"
 #include <iostream>
 //==============================================================================
-std::vector<CEntity*> CEntity::EntityList;
+
 //==============================================================================
 CEntity::CEntity() {
 	Surf_Entity = NULL;
@@ -13,12 +13,8 @@ CEntity::CEntity() {
 	Width 	= 0;
 	Height 	= 0;
 
-	MoveLeft  = false;
-	MoveRight = false;
-
 	Type = 	ENTITY_TYPE_GENERIC;
 
-	Dead = false;
 	Flags = ENTITY_FLAG_GRAVITY;
 
 	SpeedX = 0;
@@ -57,7 +53,7 @@ bool CEntity::OnLoad(const char* File, int Width, int Height, int MaxFrames) {
 
 	Anim_Control.MaxFrames = MaxFrames;
 
-    return true;
+	return true;
 }
 
 //------------------------------------------------------------------------------
@@ -77,18 +73,18 @@ void CEntity::OnLoop() {
 
 //------------------------------------------------------------------------------
 void CEntity::OnRender(SDL_Surface* Surf_Display) {
-    if(Surf_Entity == NULL || Surf_Display == NULL) return;
-    
-    CSurface::OnDraw(Surf_Display, Surf_Entity, X - CCamera::CameraControl.GetX(), Y - CCamera::CameraControl.GetY(), CurrentFrameCol * Width, (CurrentFrameRow + Anim_Control.GetCurrentFrame()) * Height, Width, Height);
+	if(Surf_Entity == NULL || Surf_Display == NULL) return;
+	
+	CSurface::OnDraw(Surf_Display, Surf_Entity, X - CCamera::CameraControl.GetX(), Y - CCamera::CameraControl.GetY(), CurrentFrameCol * Width, (CurrentFrameRow + Anim_Control.GetCurrentFrame()) * Height, Width, Height);
 }
 
 //------------------------------------------------------------------------------
 void CEntity::OnCleanup() {
-    if(Surf_Entity) {
-        SDL_FreeSurface(Surf_Entity);
-    }
+	if(Surf_Entity) {
+		SDL_FreeSurface(Surf_Entity);
+	}
 
-    Surf_Entity = NULL;
+	Surf_Entity = NULL;
 }
 
 //------------------------------------------------------------------------------
@@ -138,9 +134,9 @@ void CEntity::OnMove(float MoveX, float MoveY) {
 			}
 
 			if(PosValid((int)(X), (int)(Y + NewY))) {
-			    Y += NewY;
+				Y += NewY;
 			}else{
-			    SpeedY = 0;
+				SpeedY = 0;
 			}
 		}
 

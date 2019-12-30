@@ -1,6 +1,6 @@
 //==============================================================================
 #ifndef _CENTITY_H_
-    #define _CENTITY_H_
+	#define _CENTITY_H_
 
 #include <vector>
 
@@ -40,13 +40,8 @@ class CEntity {
 		int		Width;
 		int		Height;
 
-		bool	MoveLeft;
-		bool	MoveRight;
-
 	public:
 		int		Type;
-
-		bool	Dead;
 		int		Flags;
 
 	protected:
@@ -101,19 +96,6 @@ class CEntity {
 		bool 	PosValid(int NewX, int NewY);
 
 		bool 	PosValidEntity(CEntity* Entity, int NewX, int NewY);
-};
-
-//==============================================================================
-class CEntityCol {
-	public:
-		static std::vector<CEntityCol>	EntityColList;
-
-	public:
-		CEntity* EntityA;
-		CEntity* EntityB;
-
-	public:
-		CEntityCol();
 };
 
 //==============================================================================

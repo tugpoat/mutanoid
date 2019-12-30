@@ -1,6 +1,6 @@
 //==============================================================================
 #ifndef _CCAMERA_H_
-    #define _CCAMERA_H_
+	#define _CCAMERA_H_
 
 #include <SDL.h>
 

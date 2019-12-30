@@ -1,5 +1,5 @@
 #ifndef _CSCREEN_H_
-    #define _CSCREEN_H_
+	#define _CSCREEN_H_
 
 //STL
 #include <string>
@@ -37,9 +37,9 @@ class CScreen
 
 		virtual ~CScreen();
 
-    public:
-        int getWidth() { return mWidth;};
-        int getHeight() { return mHeight;};
+	public:
+		int getWidth() { return mWidth;};
+		int getHeight() { return mHeight;};
 };
 
 #endif

@@ -2,14 +2,14 @@
 
 //=============================================================================
 bool CSprite::OnLoad(const char* File, int Width, int Height, int MaxFrames) {
-    if(CEntity::OnLoad(File, Width, Height, MaxFrames) == false) {
-        return false;
-    }
+	if(CEntity::OnLoad(File, Width, Height, MaxFrames) == false) {
+		return false;
+	}
 
-    bAnimating = false;
-    bVisible = false;
+	bAnimating = false;
+	bVisible = false;
 
-    return true;
+	return true;
 }
 
 void CSprite::SetFrameDelay(unsigned int newRate) {

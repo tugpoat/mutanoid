@@ -12,19 +12,9 @@ void CApp::OnRender() {
 
 	SDL_FillRect(Surf_Display, &Rect, SDL_MapRGB(Surf_Display->format, 255,255,255));
 
+	//TODO: Screen Manager to control which screen/face is active/displayed
 	CFace::FaceControl.OnRender(Surf_Display);
-/*
-    //--------------------------------------------------------------------------
-    // Entities
-    //--------------------------------------------------------------------------
-    for(unsigned int i = 0;i < CEntity::EntityList.size();i++) {
-        if(!CEntity::EntityList[i]) continue;
 
-        CEntity::EntityList[i]->OnRender(Surf_Display);
-    }
-*/
-	//SDL_RenderCopy(mRenderer, mTexture, NULL, NULL);
-	///SDL_RenderPresent(mRenderer);
     SDL_UpdateWindowSurface(mWindow);
 }
 
