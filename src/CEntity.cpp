@@ -1,6 +1,6 @@
 //==============================================================================
 #include "CEntity.h"
-
+#include <iostream>
 //==============================================================================
 
 //==============================================================================
@@ -59,8 +59,10 @@ bool CEntity::OnLoad(const char* File, int Width, int Height, int MaxFrames) {
 //------------------------------------------------------------------------------
 void CEntity::OnLoop() {
 
-	SpeedX += AccelX * CFPS::FPSControl.GetSpeedFactor();
-	SpeedY += AccelY * CFPS::FPSControl.GetSpeedFactor();
+	if (AccelX != 0)
+		SpeedX += AccelX * CFPS::FPSControl.GetSpeedFactor();
+	if (AccelY != 0)
+		SpeedY += AccelY * CFPS::FPSControl.GetSpeedFactor();
 
 	if(SpeedX > MaxSpeedX)  SpeedX =  MaxSpeedX;
 	if(SpeedX < -MaxSpeedX) SpeedX = -MaxSpeedX;

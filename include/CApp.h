@@ -30,6 +30,13 @@ class CApp : public CEvent {
 
 		SDL_Surface*    Surf_Display;
 
+		//New stuff
+		SDL_Renderer*	mRenderer;
+
+		SDL_Texture*	mScreenBuf;
+
+		SDL_GLContext	mGLContext;
+
 
 	public:
 		CApp();

@@ -19,7 +19,6 @@ bool CFace::OnLoad(char *file) {
 	if (!CScreen::OnLoad(file))
 		return false;
 
-
 	// Load in screen/face definition file
 	pugi::xml_document doc;
 	if (!doc.load_file(file)) return false;

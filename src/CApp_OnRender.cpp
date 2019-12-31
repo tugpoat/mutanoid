@@ -15,7 +15,15 @@ void CApp::OnRender() {
 	//TODO: Screen Manager to control which screen/face is active/displayed
 	CFace::FaceControl.OnRender(Surf_Display);
 
-    SDL_UpdateWindowSurface(mWindow);
+	mScreenBuf = SDL_CreateTextureFromSurface(mRenderer, Surf_Display);
+	if (mScreenBuf == nullptr) {
+		//help! jesus take the wheel
+	}
+
+	SDL_RenderClear(mRenderer);
+	SDL_RenderCopy(mRenderer, mScreenBuf, NULL, NULL);
+	SDL_RenderPresent(mRenderer);
+
 }
 
 //==============================================================================
