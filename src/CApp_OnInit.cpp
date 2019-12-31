@@ -13,12 +13,24 @@ bool CApp::OnInit() {
 		return false;
 	}
 
+	SDL_SetWindowFullscreen(mWindow, SDL_WINDOW_FULLSCREEN);
+
 	mRenderer = SDL_CreateRenderer(mWindow, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
 	if (mRenderer == nullptr) {
 		return false;
 	}
 
 	Surf_Display = SDL_GetWindowSurface(mWindow);
+	
+	mScreenBuf = SDL_CreateTexture(mRenderer,
+							SDL_PIXELFORMAT_ARGB8888,
+							SDL_TEXTUREACCESS_STREAMING,
+							WWIDTH, WHEIGHT);
+
+	if (mScreenBuf == nullptr) {
+		//help! jesus take the wheel
+	}
+
 
 	//TODO: Screen Manager to control which screen/face is active/displayed
 	CFace::FaceControl.OnLoad("res/faces/miku/face.xml");

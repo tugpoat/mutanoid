@@ -6,6 +6,7 @@
 //==============================================================================
 CEntity::CEntity() {
 	Surf_Entity = NULL;
+	mEntityTex = NULL;
 
 	X = 0;
 	Y = 0;
@@ -38,6 +39,8 @@ CEntity::CEntity() {
 
 //------------------------------------------------------------------------------
 CEntity::~CEntity() {
+	SDL_FreeSurface(Surf_Entity);
+	SDL_DestroyTexture(mEntityTex);
 }
 
 //==============================================================================
@@ -46,7 +49,7 @@ bool CEntity::OnLoad(const char* File, int Width, int Height, int MaxFrames) {
 		return false;
 	}
 
-	CSurface::Transparent(Surf_Entity, 255, 0, 255);
+	//CSurface::Transparent(Surf_Entity, 255, 0, 255);
 
 	this->Width = Width;
 	this->Height = Height;
@@ -74,10 +77,26 @@ void CEntity::OnLoop() {
 }
 
 //------------------------------------------------------------------------------
-void CEntity::OnRender(SDL_Surface* Surf_Display) {
-	if(Surf_Entity == NULL || Surf_Display == NULL) return;
+void CEntity::OnRender(SDL_Renderer* renderer) {
+	if(Surf_Entity == NULL) return;
+	SDL_DestroyTexture(mEntityTex);
+	mEntityTex = SDL_CreateTextureFromSurface(renderer, Surf_Entity);
 	
-	CSurface::OnDraw(Surf_Display, Surf_Entity, X - CCamera::CameraControl.GetX(), Y - CCamera::CameraControl.GetY(), CurrentFrameCol * Width, (CurrentFrameRow + Anim_Control.GetCurrentFrame()) * Height, Width, Height);
+	SDL_Rect DestR;
+
+	DestR.x = X - CCamera::CameraControl.GetX();
+	DestR.y = Y - CCamera::CameraControl.GetY();
+	DestR.w = Width;
+	DestR.h = Height;
+
+	SDL_Rect SrcR;
+
+	SrcR.x = CurrentFrameCol * Width;
+	SrcR.y = (CurrentFrameRow + Anim_Control.GetCurrentFrame()) * Height;
+	SrcR.w = Width;
+	SrcR.h = Height;
+
+	SDL_RenderCopy(renderer, mEntityTex, &SrcR, &DestR);
 }
 
 //------------------------------------------------------------------------------

@@ -25,6 +25,8 @@ class CScreen
 		SDL_Surface*			mBackground;
 		SDL_Surface*			Surf_Display;
 
+		SDL_Texture*			mBackgroundTex;
+
 	protected:
 		std::string				mBasePath, mName;
 		unsigned int			mWidth, mHeight;
@@ -32,7 +34,7 @@ class CScreen
 
 	public:
 		virtual bool OnLoad(char *file);
-		void OnRender(SDL_Surface* Surf_Display);
+		void OnRender(SDL_Renderer*);
 		void OnLoop();
 
 		virtual ~CScreen();

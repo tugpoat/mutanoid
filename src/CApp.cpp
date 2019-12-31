@@ -24,7 +24,7 @@ int CApp::OnExecute() {
 
         OnLoop();
         OnRender();
-        SDL_Delay(25); // Let's not murder the CPU
+        SDL_Delay(20); // Let's not murder the CPU
     }
 
     OnCleanup();

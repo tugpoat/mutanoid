@@ -33,6 +33,8 @@ class CEntity {
 
 		SDL_Surface*    Surf_Entity;
 
+		SDL_Texture*	mEntityTex;
+
 	public:
 		float	X;
 		float	Y;
@@ -77,7 +79,7 @@ class CEntity {
 
 		virtual void OnLoop();
 
-		virtual void OnRender(SDL_Surface* Surf_Display);
+		virtual void OnRender(SDL_Renderer* renderer);
 
 		virtual void OnCleanup();
 

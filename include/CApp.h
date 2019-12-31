@@ -48,9 +48,9 @@ class CApp : public CEvent {
 
 		void OnEvent(SDL_Event* Event);
 
-			void OnKeyDown(SDL_Keysym sym, SDL_Keymod mod);
+			void OnKeyDown(SDL_Keycode sym, Uint16 mod);
 
-			void OnKeyUp(SDL_Keysym sym, SDL_Keymod mod);
+			void OnKeyUp(SDL_Keycode sym, Uint16 mod);
 
 			void OnExit();
 

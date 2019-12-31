@@ -10,8 +10,8 @@ void CApp::OnEvent(SDL_Event* Event) {
 }
 
 //==============================================================================
-void CApp::OnKeyDown(SDL_Keysym sym, SDL_Keymod mod) {
-	switch(sym.sym) {
+void CApp::OnKeyDown(SDL_Keycode sym, Uint16 mod){
+	switch(sym) {
 		case SDLK_LEFT: {
 			break;
 		}
@@ -32,8 +32,8 @@ void CApp::OnKeyDown(SDL_Keysym sym, SDL_Keymod mod) {
 }
 
 //------------------------------------------------------------------------------
-void CApp::OnKeyUp(SDL_Keysym sym, SDL_Keymod mod) {
-	switch(sym.sym) {
+void CApp::OnKeyUp(SDL_Keycode sym, Uint16 mod){
+	switch(sym) {
 		case SDLK_LEFT: {
 			break;
 		}

@@ -54,9 +54,9 @@ void CSprite::OnLoop() {
 }
 
 //-----------------------------------------------------------------------------
-void CSprite::OnRender(SDL_Surface* Surf_Display) {
+void CSprite::OnRender(SDL_Renderer* renderer) {
 	if (bVisible)
-		CEntity::OnRender(Surf_Display);
+		CEntity::OnRender(renderer);
 }
 
 //------------------------------------------------------------------------------

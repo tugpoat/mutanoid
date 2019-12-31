@@ -6,6 +6,8 @@ CScreen CScreen::ScreenControl;
 
 //=============================================================================
 CScreen::~CScreen() {
+	SDL_DestroyTexture(mBackgroundTex);
+	SDL_FreeSurface(mBackground);
 }
 
 //=============================================================================
@@ -40,13 +42,15 @@ void CScreen::OnLoop() {
 }
 
 //------------------------------------------------------------------------------
-void CScreen::OnRender(SDL_Surface* Surf_Display) {
-	//std::cout << "render" << std::endl;
-	CSurface::OnDraw(Surf_Display, mBackground, 0, 0, Surf_Display->w, Surf_Display->h);
+void CScreen::OnRender(SDL_Renderer* renderer) {
+	if (mBackgroundTex == nullptr)
+		mBackgroundTex = SDL_CreateTextureFromSurface(renderer, mBackground);
+
+	SDL_RenderCopy(renderer, mBackgroundTex, NULL, NULL);
 	for(unsigned int i = 0;i < mEntityList.size();i++) {
 		if(!mEntityList[i]) continue;
 
-		mEntityList[i]->OnRender(Surf_Display);
+		mEntityList[i]->OnRender(renderer);
 	}
 }
 

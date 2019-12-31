@@ -12,7 +12,7 @@ class CSprite : public CEntity {
 		bool OnLoad(const char* File, int Width, int Height, int MaxFrames);
 
 		void OnLoop();
-		void OnRender(SDL_Surface* Surf_Display);
+		void OnRender(SDL_Renderer* renderer);
 		void OnCleanup();
 		void OnAnimate();
 
