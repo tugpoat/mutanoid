@@ -1,6 +1,6 @@
 //==============================================================================
 #include "CEntity.h"
-#include <iostream>
+
 //==============================================================================
 
 //==============================================================================
@@ -49,8 +49,6 @@ bool CEntity::OnLoad(const char* File, int Width, int Height, int MaxFrames) {
 		return false;
 	}
 
-	//CSurface::Transparent(Surf_Entity, 255, 0, 255);
-
 	this->Width = Width;
 	this->Height = Height;
 
@@ -79,8 +77,10 @@ void CEntity::OnLoop() {
 //------------------------------------------------------------------------------
 void CEntity::OnRender(SDL_Renderer* renderer) {
 	if(Surf_Entity == NULL) return;
-	SDL_DestroyTexture(mEntityTex);
-	mEntityTex = SDL_CreateTextureFromSurface(renderer, Surf_Entity);
+	if (mEntityTex == NULL)
+		mEntityTex = SDL_CreateTextureFromSurface(renderer, Surf_Entity);
+	else
+		SDL_UpdateTexture(mEntityTex, NULL, Surf_Entity->pixels, Width * sizeof(Uint32));
 	
 	SDL_Rect DestR;
 

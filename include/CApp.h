@@ -13,8 +13,6 @@
 #include "CCamera.h"
 #include "CEntity.h"
 #include "CEvent.h"
-#include "CSurface.h"
-
 
 #include "CScreen.h"
 #include "CFace.h"
