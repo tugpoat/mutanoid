@@ -4,7 +4,11 @@
 #ifndef _CAPP_H_
 	#define _CAPP_H_
 
+#include <iostream>
+
 #include <SDL.h>
+#include <SDL_mixer.h>
+
 
 #include "Define.h"
 
@@ -17,23 +21,32 @@
 #include "CScreen.h"
 #include "CFace.h"
 
+#include "CLogger.h"
+
+extern CLogger *logger;
+
+//FIXME: TEST CODE
+extern Mix_Chunk *sample;
+
 //==============================================================================
 class CApp : public CEvent {
 	private:
 		bool            Running;
-
-		SDL_Window      *mWindow;
-		
 		CScreen*        Active_Screen;
 
+		//SDL Gfx stuff
+		SDL_Window      *mWindow;
 		SDL_Surface*    Surf_Display;
 
-		//New stuff
+		//SDL Gfx API stuff
 		SDL_Renderer*	mRenderer;
-
 		SDL_Texture*	mScreenBuf;
-
 		SDL_GLContext	mGLContext;
+
+
+		//SDL Audio stuff
+		SDL_AudioDeviceID	mAudioDevId;
+		SDL_AudioSpec 		mWavSpec;
 
 
 	public:
@@ -46,11 +59,11 @@ class CApp : public CEvent {
 
 		void OnEvent(SDL_Event* Event);
 
-			void OnKeyDown(SDL_Keycode sym, Uint16 mod);
+		void OnKeyDown(SDL_Keycode sym, Uint16 mod);
 
-			void OnKeyUp(SDL_Keycode sym, Uint16 mod);
+		void OnKeyUp(SDL_Keycode sym, Uint16 mod);
 
-			void OnExit();
+		void OnExit();
 
 		void OnLoop();
 

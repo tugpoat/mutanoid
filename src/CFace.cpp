@@ -14,7 +14,7 @@ CFace::~CFace() {
 
 //==============================================================================
 // READY? SPAGHETTI!
-bool CFace::OnLoad(char *file) {
+bool CFace::OnLoad(const char *file) {
 	// Check to make sure it's a valid screen by calling our parent function
 	if (!CScreen::OnLoad(file))
 		return false;
@@ -22,7 +22,9 @@ bool CFace::OnLoad(char *file) {
 	// Load in screen/face definition file
 	pugi::xml_document doc;
 	if (!doc.load_file(file)) return false;
-	std::cout << "loaded face file " << file << std::endl;
+
+	logger->log(std::string("loaded face file ") + file);
+	//std::cout << "loaded face file " << file << std::endl;
 
 	// We have established that there is a screen section present by calling the parent constructor.
 	// Instead, check to make sure that there is a valid face section to work with.
@@ -40,25 +42,27 @@ bool CFace::OnLoad(char *file) {
 	pugi::xml_node base = mood.child("base");
 
 	if (base == 0) {
-		std::cout << "no base section for default mood " << mMood << ", can't load" << std::endl;
+		logger->err(std::string("no base section for default mood " + mMood + ", can't load"));
 		return false;
 	}
 
-	std::cout << "loading bg from "
-		<< std::string(mBasePath + "/" + mMood + "/" + base.attribute("file").as_string())
-		<< std::endl;
+	logger->log(std::string("loading bg from " + mBasePath + "/" + mMood + "/" + base.attribute("file").as_string()));
 
 	mBackground = IMG_Load(std::string(mBasePath + "/" + mMood + "/" + base.attribute("file").as_string()).c_str());
 
+	// Read all sprites in default mood
 	for (pugi::xml_node sprite: mood.children("sprite")) {
 		CSprite *spr = new CSprite();
 
+		logger->log(std::string(sprite.attribute("name").as_string()));
+
 		std::string spr_fpath = std::string(mBasePath + "/" + mMood + "/" + sprite.attribute("file").as_string());
-		std::cout << "loading sprite from file " << spr_fpath
-			<< " w: " << sprite.attribute("width").as_int()
-			<< " h: " << sprite.attribute("height").as_int()
-			<< " framecount: " << sprite.attribute("rows").as_int()
-			<< std::endl;
+		logger->log(std::string("loading sprite from file " + spr_fpath
+			+ " w: " + sprite.attribute("width").as_string()
+			+ " h: " + sprite.attribute("height").as_string()
+			+ " framecount: " + sprite.attribute("rows").as_string()));
+
+
 		
 		spr->OnLoad(
 			spr_fpath.c_str(),
@@ -83,6 +87,12 @@ bool CFace::OnLoad(char *file) {
 			spr->StartAnimating();
 
 		mEntityList.push_back(spr);
+
+		// Stupid simple hook so we can directly manipulate the mouth sprite.
+		// This should be made more flexible later.
+		if (std::string(sprite.attribute("name").as_string()) == "mouth") {
+			mMouth = spr;
+		}
 	}
 
 	return true;
@@ -92,4 +102,16 @@ bool CFace::OnLoad(char *file) {
 bool CFace::SetMood(char *name) {
 	//load mood from file
 	return true;
+}
+
+bool CFace::isTalking() {
+	return mMouth->isAnimating();
+}
+
+void CFace::StartTalking() {
+	mMouth->StartAnimating();
+}
+
+void CFace::StopTalking() {
+	mMouth->StopAnimating();
 }

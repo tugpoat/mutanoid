@@ -1,6 +1,11 @@
 //==============================================================================
 #include "CApp.h"
 
+CLogger *logger;
+
+//FIXME: TEST CODE
+Mix_Chunk *sample;
+
 //==============================================================================
 CApp::CApp() {
     Surf_Display = NULL;
@@ -11,6 +16,7 @@ CApp::CApp() {
 //------------------------------------------------------------------------------
 int CApp::OnExecute() {
     if(OnInit() == false) {
+        std::cout << "Init failed" << std::endl;
         return -1;
     }
 
@@ -35,8 +41,10 @@ int CApp::OnExecute() {
 //==============================================================================
 int main(int argc, char* argv[]) {
     CApp theApp;
-
-    return theApp.OnExecute();
+    logger = new CLogger;
+    int ret = theApp.OnExecute();
+    delete logger;
+    return ret;
 }
 
 //==============================================================================

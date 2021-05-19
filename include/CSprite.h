@@ -21,6 +21,8 @@ class CSprite : public CEntity {
 		bool isVisible();
 		void SetVisible(bool);
 		void SetOscillate(bool);
+
+		bool isAnimating();
 		void StartAnimating();
 		void StopAnimating();
 	protected:

@@ -39,6 +39,10 @@ void CSprite::SetLoopDelay(unsigned int newDelay) {
 }
 
 //-----------------------------------------------------------------------------
+bool CSprite::isAnimating() {
+	return bAnimating;
+}
+//-----------------------------------------------------------------------------
 void CSprite::StartAnimating() {
 	bAnimating = true;
 }

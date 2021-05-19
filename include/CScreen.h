@@ -33,7 +33,7 @@ class CScreen
 		std::vector<CEntity *>	mEntityList;
 
 	public:
-		virtual bool OnLoad(char *file);
+		virtual bool OnLoad(const char *file);
 		void OnRender(SDL_Renderer*);
 		void OnLoop();
 

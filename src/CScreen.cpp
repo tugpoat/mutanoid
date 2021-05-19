@@ -11,7 +11,7 @@ CScreen::~CScreen() {
 }
 
 //=============================================================================
-bool CScreen::OnLoad(char *file) {
+bool CScreen::OnLoad(const char *file) {
 	//glibc implementation of dirname() modifies the passed argument. we need to create a new buffer to avoid a segfault.
 	char *tpath = strdup(file);
 	mBasePath = std::string(dirname(tpath));

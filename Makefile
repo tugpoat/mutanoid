@@ -16,9 +16,9 @@ RCOMPILE_FLAGS =
 # Additional debug-specific flags
 DCOMPILE_FLAGS = -D DEBUG
 # Add additional include paths
-INCLUDES = -I $(SRC_PATH) -I include -I /usr/include/SDL2 -I /usr/inc
+INCLUDES = -I $(SRC_PATH) -I include -I /usr/include/SDL2
 # General linker settings
-LINK_FLAGS = -lpugixml -lSDL2 -lSDL2_image $(sdl2-config --libs)
+LINK_FLAGS = -lpugixml $(sdl2-config --libs) -lSDL2 -lSDL2_image -lSDL2_mixer
 # Additional release-specific linker settings
 RLINK_FLAGS =
 # Additional debug-specific linker settings
